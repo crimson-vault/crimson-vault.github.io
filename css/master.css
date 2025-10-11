@@ -1,0 +1,225 @@
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+    * {
+      margin:0; padding:0; box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body, html {
+      height: 100%;
+      background: #0a0a0a;
+      color: #eee;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    header {
+      position: fixed;
+      top:0; left:0; width: 100%;
+      padding: 15px 30px;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: saturate(180%) blur(12px);
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(255, 69, 96, 0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: padding 0.3s ease;
+    }
+    header.scrolled {
+      padding: 8px 30px;
+      box-shadow: 0 3px 20px rgba(255, 69, 96, 0.3);
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 0.1em;
+      color: #ff4560;
+      user-select: none;
+      text-shadow: 0 0 8px #ff4560;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    nav a {
+      color: #eee;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover,
+    nav a:focus {
+      color: #ff4560;
+      outline: none;
+    }
+
+    /* Hamburger Button */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 28px;
+      height: 22px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 1100;
+    }
+    .menu-toggle:focus {
+      outline: 2px solid #ff4560;
+      outline-offset: 2px;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background: #ff4560;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      transform-origin: 1px;
+    }
+    /* Animate hamburger when active */
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg);
+    }
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg);
+    }
+
+    main {
+      position: relative;
+      max-width: 900px;
+      margin: 120px auto 60px;
+      padding: 0 20px;
+      z-index: 10;
+    }
+    section {
+      margin-bottom: 80px;
+      line-height: 1.6;
+    }
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 14px;
+      color: #ff4560;
+      text-shadow: 0 0 6px #ff4560;
+    }
+    h3 {
+      color: #ff6f80;
+      margin-bottom: 6px;
+    }
+    p {
+      font-size: 1.1rem;
+      color: #ccc;
+      max-width: 700px;
+    }
+    .service-card {
+      background: rgba(255, 69, 96, 0.1);
+      border-left: 4px solid #ff4560;
+      padding: 18px 24px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(255, 69, 96, 0.05);
+      transition: background 0.3s ease;
+    }
+    .service-card:hover {
+      background: rgba(255, 69, 96, 0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 10px;
+      font-size: 0.9rem;
+      color: #777;
+      user-select: none;
+    }
+
+    /* WhatsApp button */
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      background: #25D366;
+      color: white;
+      padding: 14px 22px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 5px 12px rgba(37, 211, 102, 0.4);
+      cursor: pointer;
+      text-decoration: none;
+      user-select: none;
+      transition: box-shadow 0.3s ease;
+      margin-top: 12px;
+    }
+    .whatsapp-btn:hover, .whatsapp-btn:focus {
+      box-shadow: 0 7px 18px rgba(37, 211, 102, 0.7);
+      outline: none;
+    }
+    .whatsapp-btn svg {
+      width: 24px;
+      height: 24px;
+      margin-right: 12px;
+      fill: white;
+      filter: drop-shadow(0 0 1px rgba(0,0,0,0.3));
+    }
+
+    /* Canvas as full background */
+    #bg {
+      position: fixed;
+      top:0; left:0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+      pointer-events: none;
+      user-select: none;
+      display: block;
+    }
+
+    /* Responsive tweaks */
+    @media(max-width: 900px){
+      main {
+        max-width: 600px;
+      }
+    }
+
+    @media(max-width: 600px){
+      header {
+        padding: 12px 18px;
+      }
+      .logo {
+        font-size: 1.4rem;
+      }
+      nav {
+        position: fixed;
+        top: 64px; /* header height */
+        right: 0;
+        background: rgba(10,10,10,0.95);
+        height: calc(100vh - 64px);
+        width: 220px;
+        flex-direction: column;
+        gap: 0;
+        padding-top: 1rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        box-shadow: -4px 0 20px rgba(255, 69, 96, 0.3);
+        border-left: 1px solid #ff4560;
+        z-index: 1050;
+      }
+      nav.open {
+        transform: translateX(0);
+      }
+      nav a {
+        margin: 1rem 0;
+        font-size: 1.2rem;
+        padding: 0 24px;
+        display: block;
+        user-select: none;
+      }
+
+      /* Show hamburger */
+      .menu-toggle {
+        display: flex;
+      }
+    }

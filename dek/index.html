@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Crimson Vault - 3D Responsive</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+    * {
+      margin:0; padding:0; box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body, html {
+      height: 100%;
+      background: #0a0a0a;
+      color: #eee;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    header {
+      position: fixed;
+      top:0; left:0; width: 100%;
+      padding: 15px 30px;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: saturate(180%) blur(12px);
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(255, 69, 96, 0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: padding 0.3s ease;
+    }
+    header.scrolled {
+      padding: 8px 30px;
+      box-shadow: 0 3px 20px rgba(255, 69, 96, 0.3);
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 0.1em;
+      color: #ff4560;
+      user-select: none;
+      text-shadow: 0 0 8px #ff4560;
+    }
+    nav a {
+      color: #eee;
+      text-decoration: none;
+      margin-left: 28px;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover,
+    nav a:focus {
+      color: #ff4560;
+      outline: none;
+    }
+
+    main {
+      position: relative;
+      max-width: 900px;
+      margin: 120px auto 60px;
+      padding: 0 20px;
+      z-index: 10;
+    }
+    section {
+      margin-bottom: 80px;
+      line-height: 1.6;
+    }
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 14px;
+      color: #ff4560;
+      text-shadow: 0 0 6px #ff4560;
+    }
+    h3 {
+      color: #ff6f80;
+      margin-bottom: 6px;
+    }
+    p {
+      font-size: 1.1rem;
+      color: #ccc;
+      max-width: 700px;
+    }
+    .service-card {
+      background: rgba(255, 69, 96, 0.1);
+      border-left: 4px solid #ff4560;
+      padding: 18px 24px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(255, 69, 96, 0.05);
+      transition: background 0.3s ease;
+    }
+    .service-card:hover {
+      background: rgba(255, 69, 96, 0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 10px;
+      font-size: 0.9rem;
+      color: #777;
+      user-select: none;
+    }
+
+    /* WhatsApp button */
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      background: #25D366;
+      color: white;
+      padding: 14px 22px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 5px 12px rgba(37, 211, 102, 0.4);
+      cursor: pointer;
+      text-decoration: none;
+      user-select: none;
+      transition: box-shadow 0.3s ease;
+      margin-top: 12px;
+    }
+    .whatsapp-btn:hover, .whatsapp-btn:focus {
+      box-shadow: 0 7px 18px rgba(37, 211, 102, 0.7);
+      outline: none;
+    }
+    .whatsapp-btn svg {
+      width: 24px;
+      height: 24px;
+      margin-right: 12px;
+      fill: white;
+      filter: drop-shadow(0 0 1px rgba(0,0,0,0.3));
+    }
+
+    /* Canvas as full background */
+    #bg {
+      position: fixed;
+      top:0; left:0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+      pointer-events: none;
+      user-select: none;
+      display: block;
+    }
+
+    /* Responsive tweaks */
+    @media(max-width: 600px){
+      header {
+        padding: 12px 18px;
+      }
+      .logo {
+        font-size: 1.4rem;
+      }
+      nav a {
+        margin-left: 16px;
+        font-size: 1rem;
+      }
+      main {
+        margin: 100px 12px 40px;
+        padding: 0 10px;
+      }
+      h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bg"></canvas>
+
+  <header id="header" role="banner">
+    <div class="logo" aria-label="Crimson Vault Logo">Crimson Vault</div>
+    <nav role="navigation" aria-label="Primary navigation">
+      <a href="#about" tabindex="0">About</a>
+      <a href="#services" tabindex="0">Services</a>
+      <a href="#contact" tabindex="0">Contact</a>
+    </nav>
+  </header>
+
+  <main role="main">
+    <section id="about" tabindex="0" aria-labelledby="about-title">
+      <h2 id="about-title">About Us</h2>
+      <p>
+        Welcome to <strong>Crimson Vault</strong>, your ultimate tech arena offering fast online solutions, powerful web development, top-notch security software, and creative photo & video editing tools — all under one roof.  
+        Whether you’re grabbing a quick bite or diving into your next digital project, we’re here to fuel your creativity and productivity.
+      </p>
+    </section>
+
+    <section id="services" tabindex="0" aria-labelledby="services-title">
+      <h2 id="services-title">Services</h2>
+      <article class="service-card" tabindex="0">
+        <h3>Web Development</h3>
+        <p>Custom websites and apps tailored to your needs, from portfolios to e-commerce.</p>
+      </article>
+      <article class="service-card" tabindex="0">
+        <h3>Security Software</h3>
+        <p>Protect your devices and data with trusted security solutions and expert advice.</p>
+      </article>
+      <article class="service-card" tabindex="0">
+        <h3>Photo Editing</h3>
+        <p>Powerful tools and software for creative and professional photo editing.</p>
+      </article>
+      <article class="service-card" tabindex="0">
+        <h3>Video Editing</h3>
+        <p>Edit videos easily with free and professional software available at your fingertips.</p>
+      </article>
+    </section>
+
+    <section id="contact" tabindex="0" aria-labelledby="contact-title" style="text-align:center;">
+      <h2 id="contact-title">Contact</h2>
+      <a
+        href="https://chat.whatsapp.com/YourGroupInviteCode"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="whatsapp-btn"
+        aria-label="Join Crimson Vault WhatsApp Group"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.52 3.48a11.92 11.92 0 00-16.85 16.85l-1.7 5.98 
+          6.12-1.6a11.93 11.93 0 0012.43-21.23zM12 21.5c-3.15 0-6.1-1.7-7.76-4.56l-.56-.87-3.55.92.95-3.44-.68-1a9.53 9.53 0 0115
+          .88-12.02 9.44 9.44 0 012.8 6.75 9.54 9.54 0 01-9.83 9.3zM17 14.4c-.26 0-1.53-.74-1.77-.82s-.41-.12-.
+          59.12-.68.82-.83.99-.31.18-.57.06a7.9 7.9 0 01-2.32-1.43 8.74 8.74 0 01-1.62-2 1.21 1.21 0 01.13-1.11c.12-
+          .12.26-.3.39-.45a.54.54 0 00.07-.3c0-.18-.59-1.44-.82-1.97s-.44-.43-.59-.44-.34-.01-.52-.01a.74.74 0 00-.53.24 2.28 2.28 0
+           00-.69 1.71 4.27 4.27 0 001.15 2.89 9.23 9.23 0 004.59 3.5c.64.27 1.14.22 1.57.14a2.22 2.22 0 001.31-1.3c.11-.22.08-.41.06
+           -.44a.75.75 0 00-.15-.13z"/></svg>
+        Join WhatsApp Group
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Crimson Vault. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.151.3/build/three.min.js"></script>
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 10) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
+
+    const canvas = document.getElementById('bg');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(70, window.innerWidth/window.innerHeight, 0.1, 1000);
+    camera.position.z = 35;
+
+    const renderer = new THREE.WebGLRenderer({canvas, alpha:true, antialias:true});
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+
+    // Glowing cube edges
+    const geometry = new THREE.BoxGeometry(14, 14, 14);
+    const edges = new THREE.EdgesGeometry(geometry);
+    const lineMaterial = new THREE.LineBasicMaterial({color: 0xff4560, linewidth: 2});
+    const wireframe = new THREE.LineSegments(edges, lineMaterial);
+    wireframe.material.transparent = true;
+    wireframe.material.opacity = 0.8;
+
+    const cube = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({
+      color: 0x22000a,
+      transparent: true,
+      opacity: 0.15,
+      side: THREE.DoubleSide
+    }));
+
+    scene.add(cube);
+    scene.add(wireframe);
+
+    // Starfield
+    const starGeometry = new THREE.BufferGeometry();
+    const starCount = 600;
+    const starPositions = new Float32Array(starCount * 3);
+
+    for(let i=0; i<starCount*3; i++) {
+      starPositions[i] = (Math.random() - 0.5) * 300;
+    }
+    starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+
+    const starMaterial = new THREE.PointsMaterial({color: 0xffffff, size: 0.4, sizeAttenuation: true});
+    const stars = new THREE.Points(starGeometry, starMaterial);
+    scene.add(stars);
+
+    let mouse = {x:0, y:0};
+    let targetMouse = {x:0, y:0};
+
+    window.addEventListener('mousemove', (e) => {
+      targetMouse.x = (e.clientX / window.innerWidth) * 2 -1;
+      targetMouse.y = -(e.clientY / window.innerHeight) * 2 +1;
+    });
+    window.addEventListener('touchmove', (e) => {
+      if(e.touches.length > 0){
+        targetMouse.x = (e.touches[0].clientX / window.innerWidth) * 2 -1;
+        targetMouse.y = -(e.touches[0].clientY / window.innerHeight) * 2 +1;
+      }
+    }, {passive:true});
+
+    function lerp(start, end, amt){
+      return (1 - amt) * start + amt * end;
+    }
+
+    function animate(){
+      requestAnimationFrame(animate);
+
+      mouse.x = lerp(mouse.x, targetMouse.x, 0.05);
+      mouse.y = lerp(mouse.y, targetMouse.y, 0.05);
+
+      stars.rotation.x = mouse.y * 0.3;
+      stars.rotation.y = mouse.x * 0.6;
+
+      cube.rotation.x += 0.002 + mouse.y * 0.001;
+      cube.rotation.y += 0.003 + mouse.x * 0.002;
+
+      wireframe.rotation.x = cube.rotation.x;
+      wireframe.rotation.y = cube.rotation.y;
+
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth/window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Crimson Vault - 3D Responsive</title>
+  <link rel="stylesheet" href="css/master.css">
+</head>
+<body>
+  <canvas id="bg"></canvas>
+
+  <header id="header" role="banner">
+    <div class="logo" aria-label="Crimson Vault Logo">Crimson Vault</div>
+    <button aria-controls="primary-navigation" aria-expanded="false" class="menu-toggle" aria-label="Toggle menu" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav role="navigation" aria-label="Primary navigation" id="primary-navigation">
+      <a href="#about" tabindex="0">About</a>
+      <a href="#services" tabindex="0">Services</a>
+      <a href="#contact" tabindex="0">Contact</a>
+    </nav>
+  </header>
+
+  <main role="main">
+    <section id="about" tabindex="0" aria-labelledby="about-title">
+      <h2 id="about-title">About Us</h2>
+      <p>
+        Welcome to <strong>Crimson Vault</strong>, your ultimate tech arena offering fast online solutions, powerful web development, top-notch security software, and creative photo & video editing tools — all under one roof.  
+        Whether you’re grabbing a quick bite or diving into your next digital project, we’re here to fuel your creativity and productivity.
+      </p>
+    </section>
+
+    <section id="services" tabindex="0" aria-labelledby="services-title">
+      <h2 id="services-title">Services</h2>
+      <article class="service-card" tabindex="0">
+        <h3>Web Development</h3>
+        <p>Custom websites and apps tailored to your needs, from portfolios to e-commerce.</p>
+      </article>
+      <article class="service-card" tabindex="0">
+        <h3>Security Software</h3>
+        <p>Protect your devices and data with trusted security solutions and expert advice.</p>
+      </article>
+      <article class="service-card" tabindex="0">
+        <h3>Photo Editing</h3>
+        <p>Powerful tools and software for creative and professional photo editing.</p>
+      </article>
+      <article class="service-card" tabindex="0">
+        <h3>Video Editing</h3>
+        <p>Edit videos easily with free and professional software available at your fingertips.</p>
+      </article>
+    </section>
+
+    <section id="contact" tabindex="0" aria-labelledby="contact-title" style="text-align:center;">
+      <h2 id="contact-title">Contact</h2>
+      <a
+        href="https://chat.whatsapp.com/YourGroupInviteCode"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="whatsapp-btn"
+        aria-label="Join Crimson Vault WhatsApp Group"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.52 3.48a11.92 11.92 0 00-16.85 16.85l-1.7 5.98 
+          6.12-1.6a11.93 11.93 0 0012.43-21.23zM12 21.5c-3.15 0-6.1-1.7-7.76-4.56l-.56-.87-3.55.92.95-3.44-.68-1a9.53 9.53 0 0115
+          .88-12.02 9.44 9.44 0 012.8 6.75 9.54 9.54 0 01-9.83 9.3zM17 14.4c-.26 0-1.53-.74-1.77-.82s-.41-.12-.
+          59.12-.68.82-.83.99-.31.18-.57.06a7.9 7.9 0 01-2.32-1.43 8.74 8.74 0 01-1.62-2 1.21 1.21 0 01.13-1.11c.12-
+          .12.26-.3.39-.45a.54.54 0 00.07-.3c0-.18-.59-1.44-.82-1.97s-.44-.43-.59-.44-.34-.01-.52-.01a.74.74 0 00-.53.24 2.28 2.28 0
+           00-.69 1.71 4.27 4.27 0 001.15 2.89 9.23 9.23 0 004.59 3.5c.64.27 1.14.22 1.57.14a2.22 2.22 0 001.31-1.3c.11-.22.08-.41.06
+           -.44a.75.75 0 00-.15-.13z"/></svg>
+        Join WhatsApp Group
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Crimson Vault. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.151.3/build/three.min.js"></script>
+  <script src="js/script.js"></script>
+  </body>
+</html>
