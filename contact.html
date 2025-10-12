@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Crimson vault</title>
+  <link rel="stylesheet" href="css/contact.css" />
+</head>
+<body>
+  <div class="overlay"></div>
+  <main class="container">
+    <img src="images\logo.jpeg" alt="Crimson vault logo" class="profile-img" />
+
+    <h1 class="animated-heading">
+      <span class="typewriter-loop" id="nameLoop"></span><span class="cursor">|</span>
+    </h1>
+    <p class="subline"><p>
+  <strong>Crimson Vault is where code meets creativity. We build what others only imagine — with precision, passion, and purpose.</strong>
+</p>
+</p>
+
+    <div class="btn-group">
+      <a href="https://wa.me/919539218900"  class="glow-btn">Contact</a>
+
+    </div>
+  <script>
+    const nameEl = document.getElementById("nameLoop");
+    const fullName = "Crimson vault";
+    let i = 0;
+    let typing = true;
+
+    function loopTyping() {
+      if (typing) {
+        if (i <= fullName.length) {
+          nameEl.innerText = fullName.slice(0, i);
+          i++;
+          setTimeout(loopTyping, 150);
+        } else {
+          typing = false;
+          setTimeout(loopTyping, 1500);
+        }
+      } else {
+        if (i >= 0) {
+          nameEl.innerText = fullName.slice(0, i);
+          i--;
+          setTimeout(loopTyping, 80);
+        } else {
+          typing = true;
+          setTimeout(loopTyping, 700);
+        }
+      }
+    }
+
+    loopTyping();
+  </script>
+</body>
+</html>
