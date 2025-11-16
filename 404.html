@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 | Lost in Space</title>
+
+<style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Orbitron", sans-serif;
+}
+
+body {
+  background: #000;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: #fff;
+}
+
+/* ⭐ Galaxy starfield background */
+.stars {
+  width: 2px;
+  height: 2px;
+  background: white;
+  position: absolute;
+  animation: starAnim 2s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes starAnim {
+  from { transform: translateY(0px); }
+  to { transform: translateY(2000px); }
+}
+
+/* Warp speed streaks */
+.streak {
+  position: absolute;
+  width: 1px;
+  height: 80px;
+  background: rgba(0, 255, 255, 0.45);
+  filter: blur(2px);
+  animation: warp 0.9s infinite linear;
+}
+
+@keyframes warp {
+  from { transform: translateY(-200px) scaleY(1); }
+  to { transform: translateY(1000px) scaleY(2); opacity: 0; }
+}
+
+/* Center wrapper */
+.container {
+  text-align: center;
+  z-index: 10;
+}
+
+/* 404 glitch text */
+.glitch {
+  font-size: 7rem;
+  font-weight: 900;
+  color: #0ff;
+  position: relative;
+  display: inline-block;
+  animation: glitchAnim 1.4s infinite;
+  text-shadow:
+      0 0 10px #0ff,
+      0 0 20px #0ff,
+      0 0 40px #00f6ff;
+}
+
+.glitch::before,
+.glitch::after {
+  content: "404";
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+}
+
+.glitch::before {
+  color: #f0f;
+  animation: glitchTop 1s infinite;
+}
+
+.glitch::after {
+  color: #0f0;
+  animation: glitchBottom 1s infinite;
+}
+
+/* Glitch Keyframes */
+@keyframes glitchAnim {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitchTop {
+  0% { transform: translate(0); clip-path: inset(0 0 60% 0); }
+  50% { transform: translate(3px, -3px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitchBottom {
+  0% { transform: translate(0); clip-path: inset(40% 0 0 0); }
+  50% { transform: translate(-3px, 3px); }
+  100% { transform: translate(0); }
+}
+
+/* Subtext */
+p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  opacity: 0.85;
+}
+
+/* Button */
+a {
+  margin-top: 25px;
+  display: inline-block;
+  padding: 12px 25px;
+  background: linear-gradient(45deg, #0ff, #f0f);
+  color: #000;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+  box-shadow: 0 0 20px #0ff;
+}
+
+a:hover {
+  background: linear-gradient(45deg, #f0f, #0ff);
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #f0f;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .glitch {
+    font-size: 4.5rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="glitch">404</div>
+  <p>You drifted too far into the galaxy. Page not found.</p>
+  <a href="/">Return to Earth</a>
+</div>
+
+<!-- Generate stars -->
+<script>
+for (let i = 0; i < 200; i++) {
+  let star = document.createElement("div");
+  star.classList.add("stars");
+  star.style.top = Math.random() * window.innerHeight + "px";
+  star.style.left = Math.random() * window.innerWidth + "px";
+  star.style.animationDuration = (1 + Math.random() * 3) + "s";
+  star.style.opacity = Math.random();
+  document.body.appendChild(star);
+}
+
+/* Warp streaks */
+for (let i = 0; i < 40; i++) {
+  let streak = document.createElement("div");
+  streak.classList.add("streak");
+  streak.style.left = Math.random() * window.innerWidth + "px";
+  streak.style.animationDuration = (0.5 + Math.random() * 1.2) + "s";
+  document.body.appendChild(streak);
+}
+</script>
+
+</body>
+</html>
